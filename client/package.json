@@ -1,0 +1,74 @@
+{
+	"name": "2048-client",
+	"version": "0.1.0",
+	"private": true,
+	"eslintConfig": {
+		"parser": "babel-eslint"
+	},
+	"type": "module",
+	"dependencies": {
+		"@babel/plugin-transform-object-assign": "^7.16.0",
+		"@testing-library/jest-dom": "^5.15.0",
+		"@testing-library/react": "^11.2.7",
+		"@testing-library/user-event": "^12.8.3",
+		"babelify": "^10.0.0",
+		"browser-sync": "^2.27.7",
+		"browserify": "^17.0.0",
+		"chart.js": "^3.6.0",
+		"crypto-js": "^4.1.1",
+		"flux": "^4.0.2",
+		"gulp": "^4.0.2",
+		"gulp-imagemin": "^8.0.0",
+		"gulp-livereload": "^4.0.2",
+		"gulp-sass": "^5.0.0",
+		"gulp-sourcemaps": "^3.0.0",
+		"imagemin-pngquant": "^9.0.2",
+		"json-rules-engine": "^6.1.2",
+		"key-mirror": "^1.0.1",
+		"keymirror": "^0.1.1",
+		"react": "^17.0.2",
+		"react-device-detect": "^2.1.2",
+		"react-dom": "^17.0.2",
+		"react-ga": "^3.3.0",
+		"react-icons": "^4.3.1",
+		"react-lazy-load-image-component": "^1.5.1",
+		"react-load-script": "^0.0.6",
+		"react-number-format": "^4.8.0",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "4.0.3",
+		"react-transition-group": "^4.4.2",
+		"superagent": "^6.1.0",
+		"svg-url-loader": "^7.1.1",
+		"uuid": "^8.3.2",
+		"vinyl-buffer": "^1.0.1",
+		"vinyl-source-stream": "^2.0.0",
+		"web-vitals": "^1.1.2",
+		"webpack": "^4.44.2",
+		"webpack-dev-server": "^3.11.1",
+		"webpack-livereload-plugin": "^3.0.2"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"dev": "webpack --config=webpack.config.js",
+		"production": "webpack --config=webpack.prod.js"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"sass": "^1.43.4",
+		"webpack-cli": "^4.9.1"
+	}
+}
