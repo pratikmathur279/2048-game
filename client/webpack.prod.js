@@ -1,7 +1,9 @@
 import path from 'path';
 import webpack from 'webpack';
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
-import CompressionPlugin from 'compression-webpack-plugin';
+// import CompressionPlugin from 'compression-webpack-plugin';
+
+const __dirname = path.resolve();
 
 var BUILD_DIR = path.resolve(__dirname, 'public/javascript');
 var APP_DIR = path.resolve(__dirname, 'src/');
@@ -25,7 +27,7 @@ var config = {
 		minimizer: [new webpack.DefinePlugin(GLOBALS), new UglifyJsPlugin()],
 	},
 
-	plugins: [new CompressionPlugin()],
+	// plugins: [new CompressionPlugin()],
 
 	module: {
 		rules: [

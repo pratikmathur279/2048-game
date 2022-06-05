@@ -30,7 +30,7 @@ gulp.task('imagemin', () => {
 
 gulp.task('connect', () => {
     browserSync({
-        port: 3011,
+        port: 3010,
         proxy: 'localhost:3010'
     });
 });
@@ -46,9 +46,9 @@ gulp.task('mainStyles', () => {
 });
 
 //watch sass files for changes
-gulp.task('watch:sass', () => {
+gulp.task('watch:sass', gulp.parallel('connect', () => {
     gulp.watch(config.sassPath + '/*.scss', gulp.series('mainStyles'));
-});
+}));
 
 gulp.task('react', () => {
     browserify(config.jsPath + '/main.js')
