@@ -19,7 +19,7 @@ import config from './config/config.js';
 // import routes
 
 
-const PORT = process.env.PORT || 3010;
+const PORT = process.env.PORT || 3456;
 
 const app = express();
 
