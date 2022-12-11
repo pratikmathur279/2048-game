@@ -26,6 +26,9 @@ class Homepage extends React.Component {
         this.left = this.left.bind(this);
         this.up = this.up.bind(this);
         this.down = this.down.bind(this);
+        this.av = this.av.bind(this);
+        this.check = this.check.bind(this);
+        this.end = this.end.bind(this);
     }
 
     componentWillMount() {
@@ -58,6 +61,190 @@ class Homepage extends React.Component {
         this.setState(state);
     }
 
+    check() {
+        let state = Object.assign({}, this.state);
+        let arr = state.numbers_arr;
+
+        var x = false;
+        for (var i = 0; i < 16; i++) {
+            switch (i) {
+                case 0:
+                    if (
+                        arr[1] === arr[0] ||
+                        arr[4] === arr[0]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 1:
+                    if (
+                        arr[1] === arr[0] ||
+                        arr[2] === arr[1] ||
+                        arr[1] === arr[5]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 2:
+                    if (
+                        arr[2] === arr[1] ||
+                        arr[3] === arr[2] ||
+                        arr[2] === arr[6]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 3:
+                    if (
+                        arr[3] === arr[2] ||
+                        arr[3] === arr[7]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 4:
+                    if (
+                        arr[4] === arr[0] ||
+                        arr[4] === arr[8] ||
+                        arr[4] === arr[5]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 5:
+                    if (
+                        arr[5] === arr[1] ||
+                        arr[5] === arr[6] ||
+                        arr[4] === arr[5] ||
+                        arr[5] === arr[9]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 6:
+                    if (
+                        arr[6] === arr[5] ||
+                        arr[6] === arr[2] ||
+                        arr[6] === arr[7] ||
+                        arr[6] === arr[10]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 7:
+                    if (
+                        arr[7] === arr[3] ||
+                        arr[7] === arr[11] ||
+                        arr[7] === arr[6]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 8:
+                    if (
+                        arr[8] === arr[4] ||
+                        arr[8] === arr[12] ||
+                        arr[8] === arr[9]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 9:
+                    if (
+                        arr[9] === arr[8] ||
+                        arr[9] === arr[5] ||
+                        arr[9] === arr[10] ||
+                        arr[9] === arr[13]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 10:
+                    if (
+                        arr[10] === arr[9] ||
+                        arr[10] === arr[11] ||
+                        arr[10] === arr[6] ||
+                        arr[10] === arr[14]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 11:
+                    if (
+                        arr[11] === arr[7] ||
+                        arr[11] === arr[15] ||
+                        arr[11] === arr[10]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 12:
+                    if (
+                        arr[12] === arr[8] ||
+                        arr[12] === arr[13]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 13:
+                    if (
+                        arr[13] === arr[12] ||
+                        arr[13] === arr[9] ||
+                        arr[13] === arr[14]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 14:
+                    if (
+                        arr[14] === arr[13] ||
+                        arr[14] === arr[10] ||
+                        arr[14] === arr[15]
+                    ) {
+                        x = true;
+                    }
+                    break;
+                case 15:
+                    if (
+                        arr[15] === arr[11] ||
+                        arr[15] === arr[14]
+                    ) {
+                        x = true;
+                    }
+                    break;
+            }
+        }
+        if (!x) {
+            this.end();
+        }
+    }
+
+    end() {
+        alert("Your Score Is:" + this.state.score + " Game Over");
+        // reset();
+    }
+
+    av() {
+        let state = Object.assign({}, this.state);
+        let arr = state.numbers_arr;
+
+        var x = false;
+        var count = 0;
+        for (var i = 0; i < 16; i++) {
+            console.log(arr[i]);
+            if (arr[i] === "") {
+                x = true;
+                count++;
+            }
+        }
+        if (x) {
+            this.random();
+        }
+        if (count === 1) {
+            this.check();
+        }
+    }
+
     createRows(original) {
         let length = 4;
         var arr = [];
@@ -79,7 +266,6 @@ class Homepage extends React.Component {
         var can = false;
         var access = false;
         var k;
-
 
         for (var i = 14; i > 0; i -= 4) {
             access = false;
@@ -120,7 +306,7 @@ class Homepage extends React.Component {
 
         this.setState({ numbers_arr: arr, score }, () => {
             if (can) {
-                this.random();
+                this.av();
             }
         });
     }
@@ -172,7 +358,7 @@ class Homepage extends React.Component {
 
         this.setState({ numbers_arr: arr, score }, () => {
             if (can) {
-                this.random();
+                this.av();
             }
         });
     }
@@ -225,7 +411,7 @@ class Homepage extends React.Component {
 
         this.setState({ numbers_arr: arr, score }, () => {
             if (can) {
-                this.random();
+                this.av();
             }
         });
     }
@@ -277,7 +463,7 @@ class Homepage extends React.Component {
 
         this.setState({ numbers_arr: arr, score }, () => {
             if (can) {
-                this.random();
+                this.av();
             }
         });
     }
@@ -286,17 +472,14 @@ class Homepage extends React.Component {
         let key = e.keyCode;
 
         switch (key) {
-            case 37: console.log("left");
-                this.left();
+            case 37: this.left();
                 break;
-            case 38: console.log("up");
-                this.up();
+            case 38: this.up();
                 break;
-            case 39: console.log("right");
-                this.right();
+            case 39: this.right();
                 break;
-            case 40: console.log("down");
-                this.down();
+            case 40: this.down();
+                break;
         }
     }
 

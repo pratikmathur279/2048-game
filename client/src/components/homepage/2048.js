@@ -230,6 +230,7 @@ function av() {
         check();
     }
 }
+
 function check() {
     var x = false;
     for (var i = 0; i < 16; i++) {
